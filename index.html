@@ -33,7 +33,18 @@
             --font-body: 'Montserrat', sans-serif;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box;
+            
+            /* --- PROTECCIÓN CONTRA SELECCIÓN --- */
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none;    /* Firefox */
+            -ms-user-select: none;     /* IE10+/Edge */
+            user-select: none;         /* Standard */
+            -webkit-tap-highlight-color: transparent; /* Elimina flash azul en móviles al tocar */
+        }
 
         body {
             background-color: var(--black-void);
@@ -161,11 +172,13 @@
             letter-spacing: 1px;
             border-radius: 50px;
             box-shadow: 0 0 15px rgba(197, 160, 89, 0.2);
-            overflow: hidden; /* Importante para que el brillo no se salga */
+            overflow: hidden; 
             border: 1px solid rgba(255,255,255,0.2);
             backdrop-filter: blur(5px);
             transition: all 0.3s ease;
             display: inline-block;
+            /* Aseguramos que el botón SÍ sea clickable aunque no seleccionable */
+            cursor: pointer; 
         }
         
         /* Estado Hover: Escala y Sombra Intensa */
@@ -180,7 +193,6 @@
             position: absolute;
             top: 0; left: -100%;
             width: 100%; height: 100%;
-            /* Gradiente más brillante para que se note la animación */
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
             transition: 0.5s;
         }
