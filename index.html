@@ -18,9 +18,9 @@
         :root {
             --gold-metallic: #b5995e;   
             --gold-dim: #7a6030;        
-            --black-void: #050505;      
-            --red-blood: #4a0404;       
-            --white-muted: #dcdcdc;     
+            --black-void: #050505;        
+            --red-blood: #4a0404;        
+            --white-muted: #dcdcdc;       
             --text-grey: #999;
             
             /* LIQUID GLASS STYLE - AJUSTADO PARA SERIEDAD */
@@ -145,7 +145,9 @@
         }
         h1 span { color: var(--gold-metallic); display: block; font-size: 0.6em; margin-top: 10px; }
 
-        /* Botón estilo cristal sólido */
+        /* -----------------------------------------------------------
+           BOTÓN "CONSULTA PRIVADA" CON ANIMACIÓN EXTREMA
+        ----------------------------------------------------------- */
         .btn-gold {
             position: relative;
             background: linear-gradient(135deg, rgba(197, 160, 89, 0.9), rgba(122, 96, 48, 0.9));
@@ -157,31 +159,36 @@
             text-transform: uppercase;
             font-size: 0.85rem;
             letter-spacing: 1px;
-            border-radius: 50px; /* Bordes redondos para el flow "liquid" */
+            border-radius: 50px;
             box-shadow: 0 0 15px rgba(197, 160, 89, 0.2);
-            overflow: hidden;
+            overflow: hidden; /* Importante para que el brillo no se salga */
             border: 1px solid rgba(255,255,255,0.2);
             backdrop-filter: blur(5px);
             transition: all 0.3s ease;
             display: inline-block;
         }
         
+        /* Estado Hover: Escala y Sombra Intensa */
         .btn-gold:hover {
-            box-shadow: 0 0 25px rgba(197, 160, 89, 0.4);
-            transform: scale(1.02);
+            box-shadow: 0 0 25px rgba(197, 160, 89, 0.6);
+            transform: scale(1.05);
         }
 
-        /* Glare effect en botón */
+        /* Efecto de Resplandor (Glare) que viaja */
         .btn-gold::before {
             content: '';
             position: absolute;
             top: 0; left: -100%;
             width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            /* Gradiente más brillante para que se note la animación */
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
             transition: 0.5s;
         }
-        .btn-gold:hover::before { left: 100%; }
-
+        
+        .btn-gold:hover::before { 
+            left: 100%; 
+            transition: 0.7s; 
+        }
 
         /* -----------------------------------------------------------
            TARJETAS "LIQUID GLASS"
@@ -206,17 +213,15 @@
         @media(min-width: 768px) { .grid-cards { grid-template-columns: repeat(3, 1fr); } }
 
         .card {
-            /* Efecto LIQUID GLASS puro */
             background: var(--liquid-bg);
             box-shadow: var(--liquid-shadow);
             backdrop-filter: var(--liquid-blur);
             -webkit-backdrop-filter: var(--liquid-blur);
             border: var(--liquid-border);
-            border-top: 1px solid rgba(255,255,255,0.2); /* Borde superior brillante para luz */
+            border-top: 1px solid rgba(255,255,255,0.2);
             border-left: 1px solid rgba(255,255,255,0.2);
-            
             padding: 35px 30px;
-            border-radius: 20px; /* Curvatura suave Apple-style */
+            border-radius: 20px;
             transition: 0.4s ease;
             position: relative;
             overflow: hidden;
@@ -225,7 +230,7 @@
         .card:hover {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
             transform: translateY(-8px);
-            border-color: rgba(181, 153, 94, 0.4); /* Brillo dorado al hover */
+            border-color: rgba(181, 153, 94, 0.4);
         }
 
         .card h3 {
@@ -246,7 +251,6 @@
             z-index: 2;
         }
 
-        /* Icono de fondo sutil */
         .card-bg-icon {
             position: absolute;
             bottom: -10px;
@@ -263,7 +267,6 @@
         footer {
             margin-top: 8rem;
             padding: 3rem 1rem;
-            /* Liquid footer */
             background: rgba(10, 10, 10, 0.6);
             backdrop-filter: blur(10px);
             border-top: 1px solid rgba(255,255,255,0.05);
@@ -469,4 +472,3 @@
 </body>
 
 </html>
-
